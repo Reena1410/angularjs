@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myapp" ng-controller='ctrl'>
+     <h1>{{msg}}</h1>
+    </div>
+
+    <script>
+        var app=angular.module('myapp',[]);
+        app.controller('ctrl',function($scope,$http){
+            $http.get('wlcm.htm').then(function(response){
+                $scope.msg=response.data;
+            });
+        });
+    </script>
+</body>
+</html>
